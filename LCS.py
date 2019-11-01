@@ -12,7 +12,7 @@ class LCS:
 
     def run(self):
         """
-        Run the algorithm
+        Runs the algorithm
         :return: result list and the time cost
         """
         self.algo.run(self.seq1, self.seq2)
