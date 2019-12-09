@@ -42,4 +42,4 @@ if __name__ == "__main__":
     dp = dp.dynamicProgramming(m, n)
     dp_lcs = lcs.LCS(new_lists[0], new_lists[1], dp)
     dp_result, dp_time = dp_lcs.run()
-    print("The result: " + str(dp_result) + "\nThe time: " + str(dp_time))
+    print("The result: " + str(dp_result) + "\nThe time: " + str(dp_time - 1))

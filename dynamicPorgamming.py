@@ -53,7 +53,7 @@ class dynamicProgramming:
 
         return self.__accumulated_table, self.__solution_table
 
-    def __run(self, seq1, i, j):
+    def __construct_Result(self, seq1, i, j):
         """
         Constructs the solution of the longest subsequence
         :param seq1: a list, the first sequence
@@ -64,12 +64,12 @@ class dynamicProgramming:
         if i == 0 or j == 0:
             return
         if self.__solution_table[i][j] == 'Down':
-            self.__run(seq1, i - 1, j - 1)
+            self.__construct_Result(seq1, i - 1, j - 1)
             self.__result.append(seq1[i - 1])
         elif self.__solution_table[i][j] == 'Up':
-            self.__run(seq1, i - 1, j)
+            self.__construct_Result(seq1, i - 1, j)
         else:
-            self.__run(seq1, i, j - 1)
+            self.__construct_Result(seq1, i, j - 1)
 
     def run(self, seq1, seq2):
         """
@@ -80,6 +80,6 @@ class dynamicProgramming:
         """
         start_time = time.time()
         self.fill_tables(seq1, seq2)
-        self.__run(seq1, self.__size1, self.__size2)
+        self.__construct_Result(seq1, self.__size1, self.__size2)
         end_time = time.time()
         self.__time_cost = end_time - start_time
